@@ -16,6 +16,11 @@ var
         include: __dirname + '/app/',
         loaders: [ 'babel' ],
       }, {
+        name: 'tmp',
+        test: /\.js?$/,
+        include: __dirname + '/node_modules/react-bemixin/',
+        loaders: [ 'babel' ],
+      }, {
         name: 'styl',
         test: /\.styl$/,
         include: __dirname + '/app/',

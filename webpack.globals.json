@@ -2,5 +2,6 @@
   "React": "react",
   "ReactDOM": "react-dom",
   "PureRenderMixin": "react-addons-pure-render-mixin",
+  "BEMixin": "react-bemixin",
   "_": "lodash"
 }

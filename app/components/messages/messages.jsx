@@ -1,6 +1,7 @@
 require('./messages.styl');
 
 const ChatMessages = React.createClass({
+  mixins: [ BEMixin ],
   getDefaultProps() {
     return {
     };
@@ -8,7 +9,7 @@ const ChatMessages = React.createClass({
 
   render() {
     return (
-      <div>
+      <div className={this.b_()}>
         Messages Here
       </div>
     );

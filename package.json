@@ -23,6 +23,7 @@
     "react": "15.0.x",
     "react-addons-pure-render-mixin": "15.0.x",
     "react-dom": "15.0.x",
+    "react-bemixin": "1.1.x",
     "style-loader": "0.13.0",
     "stylus": "~0.53.0",
     "stylus-loader": "1.5.x",

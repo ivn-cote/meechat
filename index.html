@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chat</title>
+  <link rel="stylesheet" type="text/css" href="./static/reset.css" />
+  <link rel="stylesheet" type="text/css" href="./static/compiled/app.css" />
+</head>
+<body>
+  <div id="content">If you see this text, check whether javascript is ON in browser. Or there is a js error somewhere.</div>
+  <script type="text/javascript">
+    function appendScript(url) {
+      var body = document.getElementsByTagName('body')[0];
+      var jsResource = document.createElement('script');
+      jsResource.src = url;
+      body.appendChild(jsResource);
+      return jsResource;
+    }
+
+    var buildResource = appendScript('/static/compiled/app.js');
+    buildResource.onerror = function() {
+      appendScript('http://localhost:3001/compiled/app.js');
+    }
+
+  </script>
+</body>
+</html>

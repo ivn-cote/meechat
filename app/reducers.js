@@ -6,8 +6,6 @@ let initial = {
 };
 
 export function messagesRd(state = initial, action) {
-  // console.log('messagesRd reducer invoked ', state , ' with action ', action);
-
   switch (action.type) {
     case 'ADD_MESSAGE':
       const user = action.user,
@@ -29,8 +27,6 @@ export function messagesRd(state = initial, action) {
 };
 
 export function userRd(state = { user: '' }, action) {
-  // console.log('userRd reducer invoked ', state , ' with action ', action);
-
   switch (action.type) {
     case 'CHANGE_USER':
       return {

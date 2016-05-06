@@ -19,6 +19,4 @@ const
     },
   });
 
-ReactDOM.render((
-  <App />
-), document.getElementById('content'));
+ReactDOM.render(<App />, document.getElementById('content'));

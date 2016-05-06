@@ -1,16 +1,15 @@
+import { connect } from 'react-redux';
+
 const SocketConnector = React.createClass({
   mixins: [ BEMixin ],
-  getDefaultProps() {
-    return {
-      onSuccess: _.noop
-    };
-  },
   onTryConnect(evt) {
     evt.preventDefault();
     const nickname = this.refs.nickname.value;
-    // promise for connect
     setTimeout(() => {
-      this.props.onSuccess(nickname);
+      this.props.dispatch({
+        type: 'CHANGE_USER',
+        user: nickname
+      });
     }, 300);
   },
 
@@ -27,4 +26,12 @@ const SocketConnector = React.createClass({
   },
 });
 
-export default SocketConnector;
+const mapRedux = state => {
+  return {
+    user: state.userRd
+  };
+};
+
+const SocketConnectorReduxed = connect(mapRedux)(SocketConnector);
+
+export default SocketConnectorReduxed;

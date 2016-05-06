@@ -1,37 +1,20 @@
 require('./index.styl');
 
 import Messages from './components/messages/messages.jsx';
-import SocketConnector from './components/connector/connector.jsx';
-import Disconnect from './components/disconnect/disconnect.jsx';
+import ConnectorToggle from './components/connector_toggle/connector_toggle.jsx';
+import { Provider } from 'react-redux';
+import createStore from './store';
 
-const mockData = {
-  'ivn': [
-    { text: 'Hi there' },
-    { text: 'Hi user', sender: 'Meedoc' }
-    ]
-  },
+const
   App = React.createClass({
-    mixins: [ BEMixin ],
-    getInitialState() {
-      return {
-        isConnected: false,
-        user: ''
-      };
-    },
-    toggleConnected(user) {
-      this.setState({ isConnected: !!user, user: user || this.state.user });
-    },
-
     render() {
-      const {isConnected, user} = this.state;
       return (
-        <div className={this.b_()}>
-          {isConnected
-            ? <Disconnect onSuccess={this.toggleConnected} />
-            : <SocketConnector onSuccess={this.toggleConnected} />
-          }
-          <Messages messages={_.get(mockData, user)} active={isConnected} />
-        </div>
+        <Provider store={createStore()}>
+          <div className="spa">
+            <ConnectorToggle />
+            <Messages />
+          </div>
+        </Provider>
       );
     },
   });
@@ -39,4 +22,3 @@ const mockData = {
 ReactDOM.render((
   <App />
 ), document.getElementById('content'));
-

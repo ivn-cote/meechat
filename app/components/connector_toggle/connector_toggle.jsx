@@ -4,13 +4,24 @@ import Disconnect from '../disconnect/disconnect.jsx';
 
 const ToggleConnector = React.createClass({
   mixins: [ BEMixin ],
+  disconnectWS() {
+    this.props.dispatch({
+      type: 'FLUSH_USER'
+    });
+  },
+  connectWS(nickname) {
+    this.props.dispatch({
+      type: 'CHANGE_USER',
+      user: nickname
+    });
+  },
 
   render() {
     return (
       <div className={this.b_()}>
         {this.props.user === ''
-          ? <SocketConnector />
-          : <Disconnect />
+          ? <SocketConnector onSuccess={this.connectWS} />
+          : <Disconnect onSuccess={this.disconnectWS} />
         }
       </div>
     );

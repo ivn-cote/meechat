@@ -12,6 +12,14 @@ const ChatMessages = React.createClass({
       user: ''
     };
   },
+  sendUserMsg(msg) {
+    this.props.dispatch({
+      type: 'ADD_MESSAGE',
+      message: msg,
+      user: this.props.user
+    });
+  },
+
   render() {
     let {user, messages} = this.props,
       active = user !== '';
@@ -23,7 +31,7 @@ const ChatMessages = React.createClass({
           : <div>You don't have any messages yet. Try type something!</div>
         }
         {active &&
-          <MessageSender />
+          <MessageSender onSend={this.sendUserMsg} />
         }
       </div>
     );

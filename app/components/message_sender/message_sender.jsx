@@ -1,20 +1,15 @@
-import { connect } from 'react-redux';
-
 const MessageSender = React.createClass({
   mixins: [ BEMixin ],
   getDefaultProps() {
     return {
-      messages: []
+      messages: [],
+      onSend: _.noop
     };
   },
   onSubmit(evt) {
     evt.preventDefault();
 
-    this.props.dispatch({
-      type: 'ADD_MESSAGE',
-      message: this.refs.userMessage.value,
-      user: this.props.user
-    });
+    this.props.onSend(this.refs.userMessage.value);
     this.refs.userMessage.value = '';
   },
 
@@ -30,14 +25,3 @@ const MessageSender = React.createClass({
 });
 
 export default MessageSender;
-
-const mapRedux = state => {
-  return {
-    messages: state.messagesRd,
-    user: state.userRd.user
-  };
-};
-
-const MessageSenderReduxed = connect(mapRedux)(MessageSender);
-
-export default MessageSenderReduxed;

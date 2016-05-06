@@ -1,13 +1,12 @@
-import { connect } from 'react-redux';
-
 const Disconnect = React.createClass({
   mixins: [ BEMixin ],
+  getDefaultProps() {
+    return {
+      onSuccess: _.noop
+    };
+  },
   onBtnClick() {
-    setTimeout(() => {
-      this.props.dispatch({
-        type: 'FLUSH_USER'
-      });
-    }, 300);
+    this.props.onSuccess();
   },
 
   render() {
@@ -19,12 +18,4 @@ const Disconnect = React.createClass({
   },
 });
 
-const mapRedux = state => {
-  return {
-    user: state.userRd
-  };
-};
-
-const DisconnectReduxed = connect(mapRedux)(Disconnect);
-
-export default DisconnectReduxed;
+export default Disconnect;

@@ -16,7 +16,6 @@ function makeSocketConnection(nickname, dispatch) {
   };
 
   socket.onclose = function(evt) {
-    console.log('CLOSED')
     if (!evt.wasClean)
       console.error('Websocket Termination');
     socket = null;
@@ -68,8 +67,8 @@ export function postViaConnection(msg, nickname) {
 }
 
 export function closeConnection() {
-  socket.close();
   return dispatch => {
-    return dispatch(flushUserAction())
-  }
+    socket.close();
+    return dispatch(flushUserAction());
+  };
 }

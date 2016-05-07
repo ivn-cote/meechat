@@ -6,7 +6,7 @@ import * as actions from '../../complex_actions.js';
 const ToggleConnector = React.createClass({
   mixins: [ BEMixin ],
   disconnectWS() {
-    actions.closeConnection();
+    this.props.dispatch(actions.closeConnection());
   },
   connectWS(nickname) {
     this.props.dispatch(actions.startConnection(nickname));

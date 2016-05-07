@@ -1,3 +1,5 @@
+require('./disconnect.styl');
+
 const Disconnect = React.createClass({
   mixins: [ BEMixin ],
   getDefaultProps() {
@@ -12,7 +14,7 @@ const Disconnect = React.createClass({
   render() {
     return (
       <div className={this.b_()}>
-        <button className={this.b_()} onClick={this.onBtnClick}>End Session</button>
+        <button className={this.b_('-action')} onClick={this.onBtnClick}>End Session</button>
       </div>
     );
   },

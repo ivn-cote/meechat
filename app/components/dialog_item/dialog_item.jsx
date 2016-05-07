@@ -1,3 +1,5 @@
+require('./dialog_item.styl');
+
 const DialogItem = React.createClass({
   mixins: [ BEMixin ],
   getDefaultProps() {

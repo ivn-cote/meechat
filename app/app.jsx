@@ -11,6 +11,7 @@ const
       return (
         <Provider store={createStore()}>
           <div className="spa">
+            <h1>Basic chat application based&nbsp;on&nbsp;websockets</h1>
             <ConnectorToggle />
             <Messages />
           </div>

@@ -50,18 +50,18 @@ function addMessageAction(message, user, sender = '') {
 }
 
 function flushUserAction() {
-  return ({type: 'FLUSH_USER'});
+  return ({ type: 'FLUSH_USER' });
 }
 
 export function startConnection(nickname) {
-  return (dispatch, getState) => {
+  return dispatch => {
     makeSocketConnection(nickname, dispatch);
     return dispatch(changeUserAction(nickname));
   };
 }
 
 export function postViaConnection(msg, nickname) {
-  return (dispatch, getState) => {
+  return dispatch => {
     sendMsg(nickname);
     return dispatch(addMessageAction(msg, nickname));
   };

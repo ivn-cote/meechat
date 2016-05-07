@@ -15,7 +15,7 @@ It's just a tech stack for the small specification:
 ## How to run
 Preparation is as usual: clone & install dependencies. After that, static files should be assembled.
 ```
-npm build
+npm run build
 ```
 then serve project directory via some tool, e.g.
 
@@ -26,7 +26,7 @@ and open `localhost:7777` in browser.
 
 Development mode
 ```
-npm webpack
+npm run webpack
 ```
 
 ## App is very basic

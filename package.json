@@ -29,7 +29,7 @@
     "stylus-loader": "1.5.x",
     "webpack": "1.11.x",
     "react-redux": "3.0.1",
-    "redux": "3.0.2",
+    "redux": "3.5.x",
     "redux-logger": "2.0.1",
     "redux-thunk": "1.0.0"
   },

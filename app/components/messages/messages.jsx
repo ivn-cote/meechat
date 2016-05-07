@@ -3,6 +3,7 @@ require('./messages.styl');
 import DialogItem from '../dialog_item/dialog_item.jsx';
 import MessageSender from '../message_sender/message_sender.jsx';
 import { connect } from 'react-redux';
+import * as actions from '../../complex_actions.js';
 
 const ChatMessages = React.createClass({
   mixins: [ BEMixin ],
@@ -13,11 +14,8 @@ const ChatMessages = React.createClass({
     };
   },
   sendUserMsg(msg) {
-    this.props.dispatch({
-      type: 'ADD_MESSAGE',
-      message: msg,
-      user: this.props.user
-    });
+    const {dispatch, user} = this.props;
+    dispatch(actions.postViaConnection(msg, user));
   },
 
   render() {

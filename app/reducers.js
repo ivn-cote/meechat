@@ -1,5 +1,5 @@
 let initial = {
-  'ivn': [
+  'test': [
     { text: 'Hi there' },
     { text: 'Hi user', sender: 'Meedoc' }
   ]

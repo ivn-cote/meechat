@@ -1,19 +1,15 @@
 import { connect } from 'react-redux';
 import SocketConnector from '../connector/connector.jsx';
 import Disconnect from '../disconnect/disconnect.jsx';
+import * as actions from '../../complex_actions.js';
 
 const ToggleConnector = React.createClass({
   mixins: [ BEMixin ],
   disconnectWS() {
-    this.props.dispatch({
-      type: 'FLUSH_USER'
-    });
+    actions.closeConnection();
   },
   connectWS(nickname) {
-    this.props.dispatch({
-      type: 'CHANGE_USER',
-      user: nickname
-    });
+    this.props.dispatch(actions.startConnection(nickname));
   },
 
   render() {

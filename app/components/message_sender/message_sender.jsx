@@ -1,10 +1,9 @@
 require('./message_sender.styl');
 
 const MessageSender = React.createClass({
-  mixins: [ BEMixin ],
+  mixins: [ BEMixin, PureRenderMixin ],
   getDefaultProps() {
     return {
-      messages: [],
       onSend: _.noop
     };
   },
